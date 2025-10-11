@@ -13,7 +13,7 @@ func main() {
 
 	go turtle.run()
 	go rabbit.run()
-	
+	//Получаем и выводим имя первого завершившего свою работу
 	fmt.Println(<-chWin)
 	fmt.Println("Конец гонки!")
 }
@@ -26,9 +26,12 @@ type animal struct {
 func (a animal) run() {
 	
 	for i := range 51 {
+		//имитируем гонку
 		time.Sleep(time.Duration(a.speed) * time.Millisecond)
 		fmt.Printf("%s пробежал %d метров\n", a.name, i)
 	}
+	//Отправка в канал имени
 	chWin <- fmt.Sprintf("%s прибежал первым", a.name)
 }
+
 
