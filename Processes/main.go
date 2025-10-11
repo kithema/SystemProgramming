@@ -11,6 +11,7 @@ func main() {
     for{
         fmt.Println("Enter commad...")
         fmt.Scan(&input)
+		//свитч с выбром команды
         switch input {
 		case "exit":
 			fmt.Println("Exit...")
@@ -19,6 +20,7 @@ func main() {
 		case "start":
             fmt.Println("Enter name: ")
             fmt.Scan(&input)
+			//запуск желаемого приложения 
             cmd := exec.Command(input)
             cmd.Start()
 
@@ -33,8 +35,9 @@ func main() {
     }
 
 }
-
+//возвращает error но я забыл добавить его обработку
 func killProgram(name string) error {
+  //Закрытие потока через taskkill
   cmd := exec.Command("taskkill", "/IM", name, "/F")
   err := cmd.Run()
   if err != nil {
@@ -42,4 +45,5 @@ func killProgram(name string) error {
   }
   fmt.Printf("Process %s killed successfully\n", name)
   return nil
+
 }
