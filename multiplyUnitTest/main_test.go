@@ -2,11 +2,12 @@ package main
 
 import "testing"
 import "fmt"
-
+//описание тест кейса для int
 type testCase struct {
     a, b     int
     expected int
 }
+//описание тест кейса для float
 type testCaseFloat struct {
 	a, b, expected float64
 }
@@ -21,13 +22,14 @@ func TestFirstWay(t *testing.T) {
         {5, -8, -40},   
         {-5, -8, 40},  
     }
-
+	//цикл для прохождения всего тест кейса
     for i, tc := range testCases {
         t.Run(fmt.Sprintf("Case%d", i+1), func(t *testing.T) {
             actual, err := firstWay(tc.a, tc.b)
             if err != nil {
                 t.Errorf("Should not produce an error: %v", err)
             }
+			//если ожидание не совпадает с результатом
             if tc.expected != actual {
                 t.Errorf("For a=%d, b=%d: expected %d, got %d", tc.a, tc.b, tc.expected, actual)
             }
@@ -154,4 +156,5 @@ func TestSixthWay(t *testing.T) {
             }
         })
     }
+
 }
