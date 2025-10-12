@@ -6,12 +6,12 @@ import (
 )
 
 func main(){
-	firstWay(4,4)
-	secondWay(2,16)
-	thirdWay(9, 23)
-	fourthWay(9, 52)
-	fifthWay(4,4)
-	fmt.Println(sixthWay(6,10))
+	firstWay(4,4)//Умножение через сложение
+	secondWay(2,16)//Умножение через деление
+	thirdWay(9, 23)//Умножение через логарифмы
+	fourthWay(9, 52)//Умножение через тригонометрию
+	fifthWay(4,4)//Умножение через битовые операции
+	fmt.Println(sixthWay(6,10))//Через рекурсию
 }
 
 func firstWay(a, b int){//сумма
@@ -68,4 +68,5 @@ func sixthWay(a,b int) int{
         }
     }
     return halfProduct + halfProduct
+
 }
